@@ -1,0 +1,4 @@
+hydrodex
+========
+
+.. automodule:: hydrodex

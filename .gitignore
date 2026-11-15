@@ -1,0 +1,16 @@
+local
+.DS_Store
+__pycache__/
+.mypy_cache/
+.ipynb_checkpoints/
+.vscode/
+.claude/
+# build and install folders inside the source tree (e.g. as in the README)
+/build*/
+/install/
+# output of the hydrodex executable
+profiles.csv
+spectra.csv
+# figures created by the notebooks
+examples/figures/*
+examples/data/*

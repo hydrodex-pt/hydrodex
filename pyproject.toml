@@ -1,0 +1,38 @@
+[build-system]
+requires = ["scikit-build-core>=0.10", "pybind11>=3.0"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "hydrodex"
+dynamic = ["version"]
+description = "Compute fluid profiles and the gravitational wave spectrum for direct and inverse phase transitions."
+readme = "README.md"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Giulio Barni", email = "giulio.barni@desy.de" },
+    { name = "Eric Madge", email = "eric.madge-pimentel@durham.ac.uk" },
+]
+requires-python = ">=3.8"
+dependencies = ["numpy"]
+
+[project.optional-dependencies]
+# tools for building the documentation of the Python interface with CMake
+docs = ["sphinx", "furo"]
+
+[tool.scikit-build]
+minimum-version = "build-system.requires"
+cmake.version = ">=3.24"
+wheel.packages = []
+# only install the Python module (not the C++ library, headers, executable or docs)
+install.components = ["python"]
+
+[tool.scikit-build.cmake.define]
+BUILD_PYTHONLIB = "ON"
+BUILD_EXECUTABLE = "OFF"
+BUILD_DOCS = "OFF"
+
+[tool.scikit-build.metadata.version]
+provider = "scikit_build_core.metadata.regex"
+input = "CMakeLists.txt"
+regex = 'project\([^)]*VERSION\s+(?P<value>[0-9.]+)'

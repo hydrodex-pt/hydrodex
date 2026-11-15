@@ -1,0 +1,98 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  # manual runs on any branch (Actions tab or `gh workflow run ci.yml --ref <branch>`)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            cmake g++ libboost-dev libgsl-dev doxygen
+          python -m pip install --upgrade pip
+          python -m pip install "pybind11>=3.0" numpy sphinx furo
+
+      - name: Configure
+        run: |
+          cmake -S . -B build \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DBUILD_PYTHONLIB=ON \
+            -DBUILD_EXECUTABLE=ON \
+            -DBUILD_DOCS=ON \
+            -DDEVELOPMENT_WARNINGS=ON \
+            -DOPTIMIZE_NATIVE=OFF \
+            -DPython3_EXECUTABLE="$(which python)" \
+            -Dpybind11_DIR="$(python -m pybind11 --cmakedir)"
+
+      - name: Build library, executable, Python module and documentation
+        run: cmake --build build --target everything --parallel
+
+      - name: Smoke test of the Python interface
+        run: python tests/smoke_test.py build
+
+      - name: Test the executable
+        run: |
+          # without arguments, the usage message is printed with exit code 1
+          set +e
+          ./build/bin/hydrodex > usage.txt 2>&1
+          status=$?
+          set -e
+          cat usage.txt
+          test "$status" -eq 1
+          grep -q "Usage:" usage.txt
+          # a full run writes the profile and the spectra
+          mkdir -p cli_run
+          cd cli_run
+          ../build/bin/hydrodex 0.65 0.05
+          test -s profiles.csv
+          test -s spectra.csv
+
+      - name: Upload documentation for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/docs/html
+
+      - name: Upload documentation as build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-html
+          path: build/docs/html
+
+  deploy:
+    needs: build-and-test
+    # only publish the documentation for pushes to main of the public repository
+    if: >-
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/main' &&
+      !github.event.repository.private
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
