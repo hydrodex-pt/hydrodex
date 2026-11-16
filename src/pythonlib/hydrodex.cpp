@@ -37,7 +37,7 @@ PYBIND11_MODULE(hydrodex, m) {
         "  [Barni+ (2027)]\n"
         "    G. Barni and E. Madge,\n"
         "    \"HydroDex: gotta match 'em all!\"\n"
-        "    [arXiv:2611.XXXXX [hep-ph]].\n"
+        "    [arXiv:2611.17411 [physics.flu-dyn]].\n"
         "  [Barni+ (2026)]\n"
         "    G. Barni, S. Blasi, E. Madge and M. Vanvlasselaer,\n"
         "    \"Gravitational waves from the sound shell model: direct and"

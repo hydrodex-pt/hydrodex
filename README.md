@@ -1,7 +1,7 @@
 # HydróDex
 
 [![license](https://img.shields.io/github/license/hydrodex-pt/hydrodex)](https://github.com/hydrodex-pt/hydrodex/blob/main/LICENSE)
-[![arXiv](https://img.shields.io/badge/arXiv-2611.XXXXX-%23B31B1B)](https://arxiv.org/abs/2611.XXXXX)
+[![arXiv](https://img.shields.io/badge/arXiv-2611.17411-%23B31B1B)](https://arxiv.org/abs/2611.17411)
 [![docs](https://img.shields.io/badge/docs-online-blue)](https://hydrodex-pt.github.io/hydrodex/)
 [![CI](https://github.com/hydrodex-pt/hydrodex/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/hydrodex-pt/hydrodex/actions/workflows/ci.yml)
 
@@ -77,13 +77,13 @@ to the corresponding C++ versions.
 If you use this code in your work, please cite
 <a href="#HydroDex-paper">Barni and Madge (2026) [1]</a>.  
 ```bibtex
-@article{Barni:2026XXX,
+@article{Barni:2026cxi,
     author = "Barni, Giulio and Madge, Eric",
-    title = "{Hydr\'{o}Dex: gotta match 'em all!}",
-    eprint = "2611.XXXXX",
+    title = "{Hydr{\'o}Dex: gotta match 'em all!}",
+    eprint = "2611.17411",
     archivePrefix = "arXiv",
-    primaryClass = "hep-ph",
-    reportNumber = "DESY-26-XX, IFT-UAM/CSIC-26-166, IPPP/26/84",
+    primaryClass = "physics.flu-dyn",
+    reportNumber = "DESY-26-161, IFT-CSIC/UAM-26-165, IPPP/26/83",
     month = "11",
     year = "2026"
 }
@@ -396,23 +396,24 @@ further details.
 
 ## References
 
-<div style="padding-left: 2em; text-indent: -2em;">
-
-<a id="HydroDex-paper">[1]</a> 
-  G. Barni and E. Madge,  
-  *HydróDex: gotta match 'em all!*,  
-  [[arXiv:2611.XXXXX [hep-ph]](https://arxiv.org/abs/2611.XXXXX)].
-
-<a id="HydroDex-letter">[2]</a> 
-  G. Barni and E. Madge,  
-  *Microscopic Realizability of Non-unique Bubble Hydrodynamics*,  
-  [[arXiv:2611.XXXXX [hep-ph]](https://arxiv.org/abs/2611.XXXXX)].
-
-<a id="GWs-inverse-PT">[3]</a> 
-  G. Barni, S. Blasi, E. Madge and M. Vanvlasselaer,  
-  *Gravitational waves from the sound shell model: direct and inverse phase
-  transitions in the early Universe*,  
-  [JCAP **03** (2026) 066](https://doi.org/10.1088/1475-7516/2026/03/066)
-  [[arXiv:2510.21439 [hep-ph]](https://arxiv.org/abs/2510.21439)].
-
-</div>
+<ol>
+<li><a id="HydroDex-paper"></a>
+  G. Barni and E. Madge,<br>
+  <em><code>HydróDex</code>: gotta match 'em all!</em>,<br>
+  [<a href="https://arxiv.org/abs/2611.17411">arXiv:2611.17411
+  [physics.flu-dyn]</a>].
+</li>
+<li><a id="HydroDex-letter"></a>
+  G. Barni and E. Madge,<br>
+  <em>Microscopic Realizability of Non-unique Bubble Hydrodynamics</em>,<br>
+  [<a href="https://arxiv.org/abs/2611.17402">arXiv:2611.17402 [hep-ph]</a>].
+</li>
+<li><a id="GWs-inverse-PT"></a>
+  G. Barni, S. Blasi, E. Madge and M. Vanvlasselaer,<br>
+  <em>Gravitational waves from the sound shell model: direct and inverse
+  phase transitions in the early Universe</em>,<br>
+  <a href="https://doi.org/10.1088/1475-7516/2026/03/066">JCAP <b>03</b>
+  (2026) 066</a>
+  [<a href="https://arxiv.org/abs/2510.21439">arXiv:2510.21439 [hep-ph]</a>].
+</li>
+</ol>

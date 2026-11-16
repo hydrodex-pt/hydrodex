@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.24...3.31)
 project(
     hydrodex 
     VERSION
-        0.9.0
+        1.0.0
     DESCRIPTION
         "Compute fluid profiles and the gravitational wave spectrum for direct and inverse phase transitions."
     LANGUAGES 

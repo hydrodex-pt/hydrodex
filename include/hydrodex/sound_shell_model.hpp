@@ -32,7 +32,7 @@
  * This is based on
  * 1. G. Barni and E. Madge,
  *    "HydróDex: gotta match 'em all!"
- *    [arXiv:2611.XXXXX [hep-ph]](https://arxiv.org/abs/2611.XXXXX).
+ *    [arXiv:2611.17411 [physics.flu-dyn]](https://arxiv.org/abs/2611.17411).
  * 2. G. Barni, S. Blasi, E. Madge and M. Vanvlasselaer,
  *    "Gravitational waves from the sound shell model: direct and inverse phase
  *    transitions in the early Universe,"

@@ -33,7 +33,7 @@
  * 1. @anchor ref_Barni_2027
  *    G. Barni and E. Madge,
  *    "HydróDex: gotta match 'em all!"
- *    [arXiv:2611.XXXXX [hep-ph]](https://arxiv.org/abs/2611.XXXXX).
+ *    [arXiv:2611.17411 [physics.flu-dyn]](https://arxiv.org/abs/2611.17411).
  * 2. @anchor ref_Barni_2026
  *    G. Barni, S. Blasi, E. Madge and M. Vanvlasselaer,
  *    "Gravitational waves from the sound shell model: direct and inverse phase
